@@ -1,0 +1,2 @@
+The name of the organization is Phoenix Systems. The organization is using the AWS cloud since year 2000. The S3 bucket naming convention used is phoenix-yyyy. The additional information received is that the buckets contain 3 to 5 objects only. 
+Find out the public buckets of this organization. Also find out the files inside these buckets. Out of these files there are 2 files which contain flags. Find out the flags by enumerating S3 buckets.

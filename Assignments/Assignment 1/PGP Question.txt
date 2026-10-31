@@ -1,0 +1,3 @@
+As a root user create /sales directory. Create 3 users by name – SAM, Jack and Mike. Create a sales group and add all the 3 users to this sales group.  Provide sales group rwx permissions on the /sales directory. 
+SAM is the manager of the sales department. Jack and Mike are the sales representatives. Both these users create quotations in the /sales directory. However only the SAM user should be able to open all quotations. Jack and Mike user should not able to open and read each others quotations.
+Implement the solution for the above requirement using PGP asymmetric file encryption(gpg command).

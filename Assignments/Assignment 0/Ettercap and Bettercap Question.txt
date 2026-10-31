@@ -1,0 +1,1 @@
+Perform a Man-in-the-Middle (MITM) attack using ARP poisoning and DNS poisoning on an isolated VM network (eg. NAT) with Ettercap and Bettercap. Provide step-by-step instructions for both tools to achieve the attack and analyze the results using Wireshark

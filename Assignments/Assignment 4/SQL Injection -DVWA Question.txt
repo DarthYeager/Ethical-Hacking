@@ -1,0 +1,1 @@
+Perform SQL injection on DVWA app and find out the usernames and passwords from the database. Also try if you can crack the hashed passwords using crackstation.net website.
