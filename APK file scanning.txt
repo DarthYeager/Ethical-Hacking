@@ -1,0 +1,15 @@
+APK file scanning:
+1) Download malware_apk.zip
+2) Follow the following steps:
+mkdir apk_analysis
+cd apk_analysis
+cp /Downloads/malware_apk.zip
+sudo apt install p7zip_full -y
+7x password malware_apk.zip
+ls
+sudo mv -----.apk malware.apk
+judx-gui
+3)
+Open files -> malware.apk
+Resources -> AndroidManifest.xml 
+(Now research this file and find suspicious classes and files)
