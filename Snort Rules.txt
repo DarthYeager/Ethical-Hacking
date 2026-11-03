@@ -1,0 +1,22 @@
+1. if ping to your internal network from outside then generate an alert
+2. if DNS query to websites tryhackme and kali.org then generate an alert.
+3. generate alert for brute force attack for ssh
+4. generate alert if a page not found error while accessing a website
+5. generate alert to detect port scan using SYN flag
+6. generate alert to detect port scan using FIN flag
+7. generate alert if union select is detected in a packet
+8. generate alert if any traffic goes to IP address 8.8.8.8
+9. generate alert if telnet traffic is detected
+10.generate alert to detect reverse_tcp shell attempt to port 6500 port
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+alert icmp $EXTERNAL_NET any -> $HOME_NET any (msg:"ICMP Ping from Outside to Internal Network"; itype:8; sid:1000001; rev:1;)
+alert udp any any -> any 53 (msg:"DNS Query for tryhackme.com"; content:"tryhackme"; nocase; sid:1000002; rev:1;)
+alert udp any any -> any 53 (msg:"DNS Query for kali.org"; content:"kali"; nocase; content:"org"; distance:1; sid:1000003; rev:1;)
+alert tcp any any -> any 22 (msg:"SSH Brute Force Attempt Detected"; flow:to_server,established; detection_filter:track by_src, count 5, seconds 10; sid:1000004; rev:1;)
+alert tcp any 80 -> any any (msg:"HTTP 404 Page Not Found Error Detected"; content:"HTTP/1.1 404"; nocase; sid:1000005; rev:1;)
+alert tcp any any -> any any (msg:"TCP SYN Port Scan Detected"; flags:S; threshold:type threshold, track by_src, count 10, seconds 5; sid:1000006; rev:1;)
+alert tcp any any -> any any (msg:"TCP FIN Port Scan Detected"; flags:F; threshold:type threshold, track by_src, count 10, seconds 5; sid:1000007; rev:1;)
+alert tcp any any -> any any (msg:"SQL Injection - UNION SELECT Detected"; content:"union"; nocase; content:"select"; nocase; distance:0; sid:1000008; rev:1;)
+alert ip any any -> 8.8.8.8 any (msg:"Traffic Detected to IP 8.8.8.8"; sid:1000009; rev:1;)
+alert tcp any any -> any 23 (msg:"Telnet Traffic Detected"; flow:established,to_server; sid:1000010; rev:1;)
+alert tcp any any -> any 6500 (msg:"Possible Reverse TCP Shell Attempt on Port 6500"; flow:to_server,established; sid:1000011; rev:1;)
